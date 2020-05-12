@@ -1,0 +1,41 @@
+<div class="first-box">
+  <h2>Вход в режим админа</h2>
+
+</div>
+<div class="sections-width">
+  <div class="experience-box">
+    <div *ngIf="logoffCheck; else logoffButton"> 
+    <p>Для возможности сохранять изменения в рюзюме необходио осуществить вход</p>
+    <form class="login-box" 
+    [formGroup] = form 
+    (ngSubmit)="submit()">
+      <div class="login-box__input-box">
+        <label><b>Логин:</b></label>
+        <input type="text"  formControlName="login">
+      </div>
+      <div class="login-box__input-box">
+        <label><b>Пароль:</b></label>
+        <input type="password"  formControlName="password">
+      </div>
+        <button type="submit" [disabled]="form.invalid">Вход</button>
+    </form>
+    <small class="validate-message--error" 
+    *ngIf="form.get('login').invalid && 
+          form.get('login').touched && 
+          form.get('login').errors.required">
+      Логин не может быть пустым
+    </small> 
+    <small class="validate-message--error" 
+    *ngIf="form.get('password').invalid && 
+          form.get('password').touched && 
+          form.get('password').errors.required">
+      Пароль не может быть пустым
+    </small> </div>
+    <ng-template #logoffButton>
+      <p>Для выхода из режима админа нажмите кнопку Выход - после этого изменения нельзя будет сохранить</p>
+      <button type="button" (click)="logoff()">Выход</button>
+    </ng-template>
+  </div>
+  
+
+</div>

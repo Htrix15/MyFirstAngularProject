@@ -1,0 +1,91 @@
+<div class="first-box btn-add-exp">
+  <h2>Опыт работы</h2>
+  <button *ngIf="mixing" type="button" (click)="saveMixing()">Cохранить перемешивание</button>
+</div>
+
+<div class="sections-width" *ngFor="let experience of forms.controls let iForm = index;">
+  <form [formGroup] = experience class="noWrapForm" (ngSubmit)="submit(iForm)">
+    <div class="experience-box--edit-size">
+
+      <div class="experience-box__sub-box">
+        <h4>Где работал?</h4>
+        <input type="text" formControlName="job">
+      </div>
+      <small class="validate-message--error"
+      *ngIf="experience.get('job').invalid && 
+            experience.get('job').touched && 
+            experience.get('job').errors.required">
+        Название работы не может быть пустым!
+      </small> 
+
+      <div class="experience-box__sub-box">
+        <h4>Какие даты?</h4>
+        <div>
+        <input type="month" formControlName="dateStart">
+        -
+        <input type="month" formControlName="dateEnd">
+        </div>
+      </div>
+      <small class="validate-message--error"
+      *ngIf="experience.get('dateStart').invalid && 
+            experience.get('dateStart').touched && 
+            experience.get('dateStart').errors.required">
+        Дата начала не может быть пустой!
+      </small> 
+
+      <div class="experience-box__sub-box">
+        <h4>Сайт?</h4>
+        <input type="text" formControlName="website">
+      </div>
+
+      <div class="experience-box__sub-box">
+        <h4>Чем занимался?</h4>
+        <textarea formControlName="duties">
+        </textarea>
+      </div>
+      <small class="validate-message--error"
+      *ngIf="experience.get('duties').invalid && 
+            experience.get('duties').touched && 
+            experience.get('duties').errors.required">
+        Занятие на работе не может быть пустым!
+      </small> 
+
+      <div class="experience-box__sub-box">
+        <h4>Какие основные навыки использовал?</h4>
+        <textarea formControlName="skills">
+        </textarea>
+      </div>
+      <small class="validate-message--error"
+      *ngIf="experience.get('skills').invalid && 
+            experience.get('skills').touched && 
+            experience.get('skills').errors.required">
+        Навыки не могут быть пустыми!
+      </small> 
+      
+      <div class="experience-box__sub-box">
+        <h4>GitHub?</h4>
+        <input type="text" formControlName="gitHub">
+      </div>
+
+      <div class="experience-box__sub-box">
+        <h4>Должность?</h4>
+        <input type="text" formControlName="position">
+      </div>
+
+    </div>
+    <div class="btn-box">
+      <div>
+        <button type="button" (click)="deleteExperiences(iForm)">Удалить</button>
+      </div>
+      <div>
+        <button type="button" (click)="toUp(iForm)" [disabled]="iForm==0">Вверх</button>
+        <button type="submit" [disabled]="experience.invalid">Сохранить</button>
+        <button type="button" (click)="toDown(iForm)" [disabled]="iForm==forms.length-1">Вниз</button>
+      </div>
+    </div>
+  </form>
+
+</div>
+<div class="btn-add-exp">
+  <button type="button" (click)="addExperiences()">Добавить</button>
+</div>

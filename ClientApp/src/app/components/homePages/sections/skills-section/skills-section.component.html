@@ -1,0 +1,13 @@
+<section class="sections-width--inverse" >
+  <h2>Навыки</h2>
+  <div class="skills-box">
+    <div class="skills-box__skill" *ngFor="let skill of skillsData">
+      <div class="skills-box__skill__img">
+        <img *ngIf="skill.skillImg else textSkill"  [lazyLoad]="skill.skillImg" />
+        <ng-template #textSkill>
+          <span><b>{{skill.skill}}</b></span>
+        </ng-template>
+      </div>  
+    </div>
+  </div>
+</section>

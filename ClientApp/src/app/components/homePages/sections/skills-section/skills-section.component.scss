@@ -1,0 +1,33 @@
+@import "../../../../../assets/styles/sizes";
+@import "../../../../../assets/styles/colors";
+.skills-box{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:center;
+  &__skill{
+    margin: $sMarginMiddle;
+    text-align: center;
+    //background: $cLite;
+    &__img{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      width: $sSkill;
+      height: $sSkill;
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        height:auto;
+      }
+      span{
+        font-size: $sBigFont;
+        text-shadow: $cHeadText 1px 1px 1px, $cHeadText -1px -1px 1px, 
+        $cHeadText -1px 1px 1px, $cHeadText 1px -1px 1px,
+        $cBaseText 6px 5px 3px
+      }
+      b {
+        color: $cBaseText;
+      }
+    }
+  }
+}

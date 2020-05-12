@@ -1,0 +1,13 @@
+@import "../../../../../assets/styles/sizes";
+@import "../../../../../assets/styles/colors";
+
+footer{
+  height: $sHeader;
+
+  background: $cDark;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+

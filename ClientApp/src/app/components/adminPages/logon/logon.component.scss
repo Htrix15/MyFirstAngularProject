@@ -1,0 +1,27 @@
+@import "../../../../assets/styles/sizes";
+@import "../../../../assets/styles/colors";
+p{
+  text-align: center;
+  font-size: $sMiddleFont;
+}
+.login-box{
+  margin-top: $sMarginMiddle;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  &__input-box{
+    margin: $sMarginMin;
+    input{
+      font-size: $sMiddleFont;
+      height: $sNavigations;
+      color: $cBaseText;
+    }
+    label{
+      margin-right: $sMarginMin;
+    }
+  }
+  button{
+    margin: $sMarginMin;
+    width: 150px;
+  }
+}

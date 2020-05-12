@@ -1,0 +1,42 @@
+@import "../../../../../assets/styles/sizes";
+@import "../../../../../assets/styles/colors";
+
+.main-box{
+  margin-top: $sHeaderAndNav + $sSectionsMargin;
+  display: flex;
+  align-items: center;
+  &__img{
+      height: $sPhoto;
+      width: $sPhoto;
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      margin-right: $sSectionsMargin;
+      img{    
+        max-width: 100%;
+        max-height: 100%;
+        height:auto;
+      }
+  }
+  &__greeting{
+    
+    max-width: 70%;
+    p {
+      margin-top: $sSectionsMargin;
+      text-align: justify;
+      color: $cBaseText
+    }
+  }
+}
+@media all and (max-width: 620px) {
+  .main-box{
+    margin-top: $sHeader + $sSectionsMargin;
+    display: block;
+    &__img{
+      display: none;
+    }
+    &__greeting{
+    max-width: none;
+    }
+  }
+}

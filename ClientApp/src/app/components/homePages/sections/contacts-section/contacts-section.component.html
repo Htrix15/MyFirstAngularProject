@@ -1,0 +1,67 @@
+<section>
+  <h2>Контакты</h2>
+  <div id="map" class="mapBox" *ngIf="getMap; else notMapContacts">
+    <div class="contact-box">
+      <div class="experience-box">
+        <div class="experience-box__sub-box">
+          <div class="experience-box__sub-box__2col-box">
+            <div>
+              <b>Телефон:</b>
+            </div>
+            <div>
+              <span>{{contactData.phone}}</span>
+            </div>
+          </div>
+          <div class="experience-box__sub-box__2col-box">
+            <div>
+              <b>Email:</b>
+            </div>
+            <div>
+              <span>{{contactData.eMail}}</span>
+            </div>
+          </div>
+          <div class="experience-box__sub-box__2col-box">
+            <div>
+              <b>{{contactData.descAdditionalContact}}</b>
+            </div>
+            <div>
+              <span>{{contactData.additionalContact}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #notMapContacts>
+    <div class="sections-width">
+      <div class="experience-box">
+        <div class="experience-box__sub-box">
+          <div class="experience-box__sub-box__2col-box">
+            <div>
+              <b>Телефон:</b>
+            </div>
+            <div>
+              <span>{{contactData.phone}}</span>
+            </div>
+          </div>
+          <div class="experience-box__sub-box__2col-box">
+            <div>
+              <b>Email:</b>
+            </div>
+            <div>
+              <span>{{contactData.eMail}}</span>
+            </div>
+          </div>
+          <div class="experience-box__sub-box__2col-box">
+            <div>
+              <b>{{contactData.descAdditionalContact}}</b>
+            </div>
+            <div>
+              <span>{{contactData.additionalContact}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</section>

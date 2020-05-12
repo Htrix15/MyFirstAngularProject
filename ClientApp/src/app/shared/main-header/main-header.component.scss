@@ -1,0 +1,152 @@
+@import "../../../assets/styles/sizes";
+@import "../../../assets/styles/colors";
+header {
+  position:fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background-color: $cDark;
+  width: 100%;
+  height: $sHeader;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 $spading;
+  .main-contact {
+    :hover {
+      text-decoration: none;
+    }
+    &__contact {
+      color: $cHeadText;
+      font-size: $sBigFont;
+      margin-right: $spading;
+    }
+    &__button{
+      border: none;
+      background: none;
+      outline: none;
+      height: 35px;
+      &__img{
+        width: 35px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.display{
+  display: none;
+}
+
+@media all and (max-width: 620px) {
+  header {
+    a.main-contact {
+      &__contact {
+        display: none;
+      }
+    }
+    .main-contact {
+      &__contact {
+        margin: auto;;
+      }
+    }
+  }
+  .display{
+    display: block;
+  }
+}
+
+
+
+.blackout{
+  position: fixed;
+  z-index: 3;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: $cBlackout;
+}
+.feedback-box{
+  position: fixed;
+  z-index: 4;
+  width: $sFeedbackWidth;
+  height: $sFeedbacHeight;
+  background: $cHeadText;
+  border: 2px solid $cDark;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  &__header{
+    background: $cDark;
+    color: $cHeadText;
+    font-size: $sMiddleFont;
+    height: $sNavigations;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &__btn-close{
+      position: absolute;
+      right: 10px;
+      background: none;
+      color: $cHeadText;
+      outline: none;
+      width: $sNavigations;
+      height: $sNavigations;
+      text-align: center;
+      cursor: pointer;
+      &:active{
+        background: $cLite;
+      }
+    }
+  }
+  &__form{
+    display: flex;
+    flex-direction: column;
+    padding: $spading;
+    label, input, textarea, button{
+      margin-top: $sMarginMin;
+      font-size: $sMiddleFont;
+      color: $cBaseText;
+    }
+    button{
+      color: $cHeadText;
+    }
+    textarea{
+      height: $sFeedbacMessage;
+    }
+  }
+}
+@media all and (max-width: 620px) {
+  .blackout{
+    display: none;
+  }
+  .feedback-box{
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    transform: none;
+  }
+}
+
+
+.message{
+  position: fixed;
+  right: 0px;
+  top: $sHeaderAndNav;
+  z-index: 5;
+  color: $cHeadText;
+  padding: $spadingMin;
+  margin: $sMarginMin;
+  text-align: center;
+  width: 250px;
+}
+.message__error{
+  @extend .message;
+  background: $cError;
+}
+.message__not-error{
+  @extend .message;
+  background: $cLite;
+}

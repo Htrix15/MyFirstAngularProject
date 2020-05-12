@@ -1,0 +1,188 @@
+<div class="first-box">
+  <h2>Всё остальное</h2>
+</div>
+
+<div class="sections-width">
+
+
+    <form class="noWrapForm"
+    [formGroup] = formMain 
+    (ngSubmit)="submitMain()">
+      <section class="experience-box--edit-size">
+
+        <div class="experience-box__sub-box">
+          <h4>Фото</h4>
+          <div class="experience-box__sub-box__img">
+            <img [lazyLoad]=usrMain.photo/>
+          </div>
+          <input type="hidden" formControlName="imgDb">
+          <label for="file">Загрузить изображние</label>
+          <input type="file" id="file" accept="image/*"
+          (change)="onSelectFile($event)"
+          formControlName="photo">
+        </div>
+
+        <div class="experience-box__sub-box">
+          <h4>Приветсвенный текст</h4>
+          <textarea formControlName="welcomeText">
+          </textarea>
+        </div>
+       
+        <div *ngIf="formMain.invalid"
+          class="validate-message--error">
+          <small *ngIf ="formMain.get('welcomeText').invalid && 
+                        formMain.get('welcomeText').touched && 
+                        formMain.get('welcomeText').errors.required">
+            Текст не может быть пустым!</small>
+          <small *ngIf ="formMain.errors &&
+                        formMain.errors.validatePhoto">
+            Прикрепите картинку!</small>
+        </div>
+
+
+
+      </section>
+      <div class="btn-box">
+        <div>
+          <button type="submit" [disabled]="formMain.invalid">Сохранить</button>
+        </div>
+      </div>
+    </form>
+
+    <form class="noWrapForm"
+    [formGroup] = formAbout 
+    (ngSubmit)="submitAbout()"
+    >
+      <section class="experience-box--edit-size">
+
+        <div class="experience-box__sub-box">
+          <h4>Владение языками</h4>
+          <input type="text" formControlName="language">
+        </div>
+        <small class="validate-message--error"
+        *ngIf ="formAbout.get('language').invalid && 
+                formAbout.get('language').touched && 
+                formAbout.get('language').errors.required">
+          Надо заполнить владение языками!
+        </small>
+
+        <div class="experience-box__sub-box">
+          <h4>Город</h4>
+          <input type="text" formControlName="city">
+        </div>
+        <small class="validate-message--error"
+        *ngIf ="formAbout.get('city').invalid && 
+                formAbout.get('city').touched && 
+                formAbout.get('city').errors.required">
+          Город не может быть пустым!
+        </small>
+
+        <div class="experience-box__sub-box">
+          <h4>Хобби</h4>
+          <textarea formControlName="hobby">
+          </textarea>
+        </div>
+        <small class="validate-message--error"
+        *ngIf ="formAbout.get('hobby').invalid && 
+                formAbout.get('hobby').touched && 
+                formAbout.get('hobby').errors.required">
+          Надо заполнить хобби!
+        </small>
+
+      </section>
+
+      <div class="btn-box">
+        <div>
+          <button type="submit" [disabled]="formAbout.invalid">Сохранить</button>
+        </div>
+      </div>
+    </form>
+
+    <form class="noWrapForm"
+    [formGroup] = formContacts
+    (ngSubmit)="submitContacts()">
+      <section class="experience-box--edit-size">
+        
+        <div class="experience-box__sub-box">
+          <h4>Фамилия</h4>
+          <input type="text" formControlName="surname">
+        </div>
+        <small class="validate-message--error" 
+        *ngIf ="formContacts.get('surname').invalid && 
+                formContacts.get('surname').touched && 
+                formContacts.get('surname').errors.required">
+          Фамилия не может быть пустой!
+        </small>
+
+        <div class="experience-box__sub-box">
+          <h4>Имя</h4>
+          <input type="text" formControlName="name">
+        </div>
+        <small class="validate-message--error" 
+        *ngIf ="formContacts.get('name').invalid && 
+                formContacts.get('name').touched && 
+                formContacts.get('name').errors.required">
+        Имя не может быть пустым!
+        </small>
+
+        <div class="experience-box__sub-box">
+          <h4>Номер телефона</h4>
+          <input type="text" formControlName="phone">
+        </div>
+        <small class="validate-message--error" 
+        *ngIf ="formContacts.get('phone').invalid && 
+                formContacts.get('phone').touched && 
+                formContacts.get('phone').errors.required">
+        Надо заполнить номер телефона!
+        </small>
+
+        <div class="experience-box__sub-box">
+          <h4>Email</h4>
+          <input type="email" formControlName="eMail">
+        </div>
+        <small class="validate-message--error"
+        *ngIf ="formContacts.get('eMail').invalid && 
+                formContacts.get('eMail').touched && 
+                formContacts.get('eMail').errors.required">
+        Надо заполнить Email!
+        </small>
+        <small class="validate-message--error"
+        *ngIf ="formContacts.get('eMail').invalid && 
+                formContacts.get('eMail').touched && 
+                formContacts.get('eMail').errors.email">
+        Некорректный формат email!
+        </small>
+        
+        <div class="experience-box__sub-box">
+          <h4>Название доп. контакта</h4>
+          <input type="text" formControlName="descAdditionalContact">
+        </div>
+
+        <div class="experience-box__sub-box">
+          <h4>Доп. контакт</h4>
+          <input type="text" formControlName="additionalContact">
+        </div>
+        <small class="validate-message--error"
+        *ngIf ="formContacts.errors && 
+                formContacts.errors.validateAdditionalContact">
+          Должно быть заполнено и название и сам доп контакт или оба!
+        </small>
+        
+        <div class="experience-box__sub-box">
+          <h4>Src Яндекс карты</h4>
+          <input type="text" formControlName="srcYMap">
+        </div>
+        <small class="validate-message--error"
+        *ngIf ="formContacts.get('srcYMap').invalid && 
+                formContacts.get('srcYMap').touched && 
+                formContacts.get('srcYMap').errors.validateYMap">
+        Правильно скопируйте адресс с конструктора Yandex! Адрес должен начинаться с https://api-maps.yandex.ru/services/constructor/!
+        </small>  
+      </section>
+      <div class="btn-box">
+        <div>
+          <button type="submit" [disabled]="formContacts.invalid">Сохранить</button>
+        </div>
+      </div>
+    </form>
+</div>

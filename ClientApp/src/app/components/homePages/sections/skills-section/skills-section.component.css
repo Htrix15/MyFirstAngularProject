@@ -1,0 +1,22 @@
+﻿.skills-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+  .skills-box__skill {
+    margin: 10px;
+    text-align: center; }
+    .skills-box__skill__img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 150px;
+      height: 150px; }
+      .skills-box__skill__img img {
+        max-width: 100%;
+        max-height: 100%;
+        height: auto; }
+      .skills-box__skill__img span {
+        font-size: 25px;
+        text-shadow: #ffffff 1px 1px 1px, #ffffff -1px -1px 1px, #ffffff -1px 1px 1px, #ffffff 1px -1px 1px, #3C3C3C 6px 5px 3px; }
+      .skills-box__skill__img b {
+        color: #3C3C3C; }

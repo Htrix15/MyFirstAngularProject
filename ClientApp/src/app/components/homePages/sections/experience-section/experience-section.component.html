@@ -1,0 +1,27 @@
+<section class="sections-width">
+  <h2>Опыт Работы</h2>
+    <div class="experience-box" *ngFor="let experience of experiencesData">
+
+      <div class="experience-box__sub-box">
+        <h3>{{experience.job}}</h3>        
+        <span>{{experience.dateStart| date:'MMMM y':null:'ru' | dateNull: '' | titlecase}}
+              {{experience.dateEnd  | date:'MMMM y':null:'ru' | dateNull: '- ' | titlecase}}</span>
+        <a *ngIf="experience.website" href="https://{{experience.website}}">{{experience.website}}</a>
+      </div>
+
+      <div class="experience-box__sub-box">
+        <h4>Чем занимался?</h4>
+        <p>{{experience.duties}}</p>
+      </div>
+
+      <div class="experience-box__sub-box">
+        <span><b>Навыки: </b> {{experience.skills}}</span>
+        <span *ngIf="experience.position"><b>Должность: </b>{{experience.position}}</span>
+       
+      </div>
+      <div class="experience-box__sub-box--no-colomn">
+        <span *ngIf="experience.gitHub"><b>GitHub:</b></span>
+        <a href="https://{{experience.gitHub}}">{{experience.gitHub}}</a>
+      </div>
+    </div>
+</section>

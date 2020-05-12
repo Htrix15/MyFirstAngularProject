@@ -1,0 +1,60 @@
+<header>
+  <button type="button" class="main-contact__button display" (click)="showMenu()">
+    <img src="assets/icons/nav-ico.png" alt="Навигация" class="main-contact__button__img">
+  </button>
+  <div class="main-contact">
+    <a class="main-contact__contact" [routerLink]="['/']" >{{contactData.surname}} {{contactData.name}}</a>
+    <span class="main-contact__contact">{{contactData.phone}}</span>
+  </div>
+  <button type="button" class="main-contact__button" (click)="showEmailWindow = true">
+    <img src="assets/icons/mail-ico.png" alt="Отправить письмо" class="main-contact__button__img">
+  </button>
+</header>
+
+<div [ngClass]="{'message__error': typeMessageError, 'message__not-error': !typeMessageError}" *ngIf="chechMessage">
+ {{textMessage}}
+</div>
+
+<div *ngIf="showEmailWindow" class="not-fade-animate">
+  <div class="blackout"></div>
+  <div class="feedback-box">
+    <div class="feedback-box__header">
+      Обратная связь
+      <button type="button" class="feedback-box__header__btn-close" (click)="showEmailWindow = false">X</button>
+    </div>
+    <form class="feedback-box__form"
+      [formGroup] = formEmailWindow
+      (ngSubmit)="submit()">
+
+      <label>Как к Вам обратится?</label>
+      <input type="text" formControlName="name">
+
+      <label>На какой адрес отправить ответ?</label>
+      <input type="text" formControlName="eMail">
+      <small class="validate-message--error"
+      *ngIf ="formEmailWindow.get('eMail').invalid && 
+              formEmailWindow.get('eMail').touched && 
+              formEmailWindow.get('eMail').errors.required">
+      Надо заполнить Email!</small>
+      <small class="validate-message--error"
+      *ngIf ="formEmailWindow.get('eMail').invalid && 
+              formEmailWindow.get('eMail').touched && 
+              formEmailWindow.get('eMail').errors.email">
+      Некорректный формат email!</small>
+
+      <textarea formControlName="textMessage"></textarea>
+
+      <small class="validate-message--error"
+      *ngIf ="formEmailWindow.get('textMessage').invalid && 
+              formEmailWindow.get('textMessage').touched && 
+              formEmailWindow.get('textMessage').errors.required">
+      Текст обращения не может быть пустым!</small>
+
+      <button type="submit" [disabled]="formEmailWindow.invalid">Отправить!</button>
+    </form>
+
+
+  </div>
+</div>
+
+<router-outlet></router-outlet>

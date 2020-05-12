@@ -1,0 +1,39 @@
+<nav>
+  <ul class="navigations-box">
+    <li *ngIf="loadExperience">
+      <a class="navigations-box__link" href="#experience">Опыт работы</a>
+    </li>
+    <li *ngIf="loadSkills">
+      <a class="navigations-box__link" href="#skills">Навыки</a>
+    </li>
+    <li *ngIf="loadEducation">
+      <a class="navigations-box__link" href="#education">Образование</a>
+    </li>
+    <li *ngIf="loadAboutMe">
+      <a class="navigations-box__link" href="#aboutMe">Обо мне</a>
+    </li>
+    <li *ngIf="loadContacts">
+      <a class="navigations-box__link" href="#contacts">Контакты</a>
+    </li>
+  </ul> 
+
+  <ul *ngIf="show_menu" class="navigations-box--menu">
+    <li *ngIf="loadExperience">
+      <a class="navigations-box__link" href="#experience" (click)="close()">Опыт работы</a>
+    </li>
+    <li *ngIf="loadSkills">
+      <a class="navigations-box__link" href="#skills" (click)="close()">Навыки</a>
+    </li>
+    <li *ngIf="loadEducation">
+      <a class="navigations-box__link" href="#education" (click)="close()">Образование</a>
+    </li>
+    <li *ngIf="loadAboutMe">
+      <a class="navigations-box__link" href="#aboutMe" (click)="close()">Обо мне</a>
+    </li>
+    <li *ngIf="loadContacts">
+      <a class="navigations-box__link" href="#contacts" (click)="close()">Контакты</a>
+    </li>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>

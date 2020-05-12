@@ -1,0 +1,356 @@
+@import "assets/styles/sizes";
+@import "assets/styles/colors";
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+  outline: none;
+}
+p, span, label {
+  color: $cBaseText;
+}
+textarea{
+  resize: none;
+}
+button {
+  background: $cDark;
+  color: $cHeadText;
+  cursor: pointer;
+  font-size: $sMiddleFont;
+  height: $sNavigations;
+  border: 0px;
+  &:active {
+    background: $cLite;
+  }
+}
+
+.btn-add-exp{
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: $sMarginMiddle;
+  button{
+    width: 50%;
+  }
+}
+
+.first-box{
+  margin-top: $sHeaderAndNav + $sSectionsMargin;
+  text-align: center;
+}
+
+.btn-box{
+  margin-top: $sHeadTextMargin;
+  display: flex;
+  align-content: space-between;
+  flex-wrap: wrap;
+  align-self: stretch;
+  width: 120px + $sMarginMin;
+  button{
+    width: 120px;
+    margin: $sMarginMin;
+  }
+}
+
+
+a{
+  color: $cHeadText;
+  text-decoration: none;
+  font-size: $sMiddleFont;
+}
+
+a:hover{
+  text-decoration: underline;
+}
+
+h1, h2{
+  text-align: center;
+}
+h1, h2, h3, h4, b{
+  color: $cDark;
+}
+.after-head-and-nav-el{
+  margin-top: $sHeaderAndNav;
+}
+.sections-width{
+  max-width: $sSectionsWidth;
+  margin: $sSectionsMargin auto;
+  padding: 0 $spading;
+  &--inverse{
+    padding: $spading;
+    width: 100%;
+    background: $cDark;
+    h2{
+      color: $cHeadText;
+    }
+  }
+}
+
+.experience-box{
+  border: 1px solid $cLite;
+  padding: $sMarginMiddle $spading $spading $spading;
+  margin-top: $sHeadTextMargin;
+  display: flex;
+  flex-direction: column;
+  &__sub-box{
+    display: flex;
+    flex-direction: column;
+    margin-top: $sMarginMiddle;
+    span, p, a{
+      text-align: justify;
+      margin-top: $sMarginMin;
+    }
+    &--no-colomn{
+      display: flex;
+      b{
+        margin-right: 5px;
+      }
+    }
+    &__2col-box{
+      display: flex;
+      margin-top: $sMarginMin;
+      :nth-child(odd){
+        width: 150px;
+      }
+      :nth-child(even){
+        text-align: justify;
+        width: 80%;
+      }
+    }
+  }
+}
+
+
+.experience-box--edit-size{
+  @extend .experience-box;
+  width: 80%;
+
+  input, textarea{
+    margin-top: $sMarginMin;
+    font-size: $sMiddleFont;
+    color: $cBaseText;
+  }
+
+  textarea{
+    height: 100px;
+  }
+}
+
+@media all and (max-width: 620px) {
+  .experience-box{
+    &__sub-box{
+      &__2col-box{
+        display: block;
+        :nth-child(odd){
+          width: auto;
+        }
+        :nth-child(even){
+          text-align: justify;
+          width: auto;
+        }
+      }
+    }
+    &--edit-size{
+    width: 100%;
+    }
+  }
+}
+
+
+
+input, textarea{
+  padding: $spadingInput;
+}
+
+input[type=month] {
+  width: 200px;
+  text-align: left;
+}
+input[type=file]{
+   position: absolute;
+   opacity:0;
+   pointer-events: none;
+   -webkit-user-select: none;
+      -moz-user-select: none;
+       -ms-user-select: none;
+           user-select: none;
+   max-width: 10px;
+ }
+
+.noWrapForm{
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+@media all and (max-width: 620px) {
+  .noWrapForm{
+    flex-wrap: wrap;
+  }
+}
+
+
+.validate-message--error{
+  color: $cError;
+}
+input.ng-invalid.ng-touched{
+  border: 1px solid $cError;
+}
+textarea.ng-invalid.ng-touched{
+  border: 1px solid $cError;
+}
+
+button:disabled{
+  -webkit-animation: fade 1s;
+          animation: fade 1s;
+  opacity: 0.3;
+  cursor: auto;
+}
+
+@-webkit-keyframes fade {
+  from { opacity: 1; }
+  to { opacity: 0.3; } 
+}
+
+@keyframes fade {
+  from { opacity: 1; }
+  to { opacity: 0.3; } 
+}
+
+
+
+#aboutMe, #contacts, #education, #experience, #skills {
+  :before {
+    display: block;
+    pointer-events: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    content: "";
+    height: $sHeaderAndNav;
+    margin: -$sHeaderAndNav 0 0;
+  }
+}
+div:not(.not-fade-animate),p,span,input:not([type="file"]) {
+  -webkit-animation: fadein .3s;
+          animation: fadein .3s;
+}
+img.ng-lazyloaded { 
+  -webkit-animation: fadein .5s; 
+          animation: fadein .5s;
+}
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; } 
+}
+@keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; } 
+}
+
+.load-box{
+  background:$cDark;
+  width: $sStartAnimation;
+  height: $sStartAnimation;
+  border-radius: 50%;
+  position: fixed;
+  z-index: 4;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-animation-name: puls;
+          animation-name: puls;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
+
+  span{
+    position: absolute;
+    color: $cHeadText;
+    font-size: $sBigFont;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+@-webkit-keyframes puls {
+  0% {
+    width: $sStartAnimation;
+    height:$sStartAnimation;
+    background: $cLite;
+  }
+  50% {
+    width: $sEndAnimation;
+    height: $sEndAnimation;
+    background: $cDark;
+  }
+  100% {
+    width: $sStartAnimation;
+    height: $sStartAnimation;
+    background: $cLite;
+  }
+}
+@keyframes puls {
+  0% {
+    width: $sStartAnimation;
+    height:$sStartAnimation;
+    background: $cLite;
+  }
+  50% {
+    width: $sEndAnimation;
+    height: $sEndAnimation;
+    background: $cDark;
+  }
+  100% {
+    width: $sStartAnimation;
+    height: $sStartAnimation;
+    background: $cLite;
+  }
+}
+
+.navigations-box{
+  position:fixed;
+  left: 0;
+  top: $sHeader;
+  z-index: 1;
+  background-color: $cLite;
+  width: 100%;
+  height: $sNavigations;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  &__link{
+    &--activ{
+      color: $cBaseText;
+    }
+  }
+}
+.navigations-box--menu{
+  position:fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  background-color: $cLite;
+  list-style: none;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  &__link{
+    &--activ{
+      color: $cBaseText;
+    }
+  }
+}
+
+@media all and (max-width: 620px) {
+  .navigations-box{
+     display: none;
+  }
+}

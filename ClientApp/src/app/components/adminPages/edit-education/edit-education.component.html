@@ -1,0 +1,67 @@
+<div class="first-box btn-add-exp">
+  <h2>Образование</h2>
+  <button *ngIf="mixing" type="button" (click)="saveMixing()">Cохранить перемешивание</button>
+</div>
+
+<div class="sections-width" *ngFor="let education of forms.controls let iForm = index;" >
+  <form [formGroup] = education class="noWrapForm" 
+  (ngSubmit)="submit(iForm)">
+
+    <div class="experience-box--edit-size">
+      <div class="experience-box__sub-box">
+        <h4>Где учился?</h4>
+        <input type="text" formControlName="institution">
+      </div>
+      <small class="validate-message--error"
+      *ngIf="education.get('institution').invalid && 
+            education.get('institution').touched && 
+            education.get('institution').errors.required">
+        Институт не может быть пустым!
+      </small> 
+
+      <div class="experience-box__sub-box">
+        <h4>Год окончания?</h4>
+        <div>
+          <input type="number" formControlName="dateCompletion">
+        </div>
+      </div>
+      <small class="validate-message--error"
+      *ngIf="education.get('dateCompletion').invalid && 
+            education.get('dateCompletion').touched && 
+            education.get('dateCompletion').errors.required">
+        Дата окончания не может быть пустой!
+      </small> 
+
+      <div class="experience-box__sub-box">
+        <h4>Специальность?</h4>
+        <input type="text" formControlName="specialty">
+      </div>
+      <small class="validate-message--error"
+      *ngIf="education.get('specialty').invalid && 
+            education.get('specialty').touched && 
+            education.get('specialty').errors.required">
+        Специальность не может быть пустой!
+      </small> 
+
+      <div class="experience-box__sub-box">
+        <h4>Средний балл?</h4>
+        <div>
+          <input type="text" formControlName="gradePoint">
+        </div>
+      </div>
+    </div>
+    <div class="btn-box">
+      <div>
+        <button type="button" (click)="toUp(iForm)" [disabled]="iForm==0">Вверх</button>
+        <button type="submit" [disabled]="education.invalid">Сохранить</button>
+        <button type="button" (click)="toDown(iForm)" [disabled]="iForm==forms.length-1" >Вниз</button>
+      </div>
+      <div>
+        <button type="button" (click)="deleteEducation(iForm)">Удалить</button>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="btn-add-exp">
+  <button type="button" (click)="addEducation()">Добавить</button>
+</div>

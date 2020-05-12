@@ -1,0 +1,19 @@
+@import "../../../../../assets/styles/sizes";
+@import "../../../../../assets/styles/colors";
+.mapBox{
+  margin-top: $sMarginMiddle;
+  border: 1px solid $cLite;
+  position: relative;
+  min-height: 340px;
+}
+.contact-box{
+  max-width: 300px;
+  position: absolute;
+  background: $cHeadText;
+  top: 50px;
+  right: 15%;
+  z-index: 1;
+  .experience-box{
+    margin-top: 0px;
+  }
+}

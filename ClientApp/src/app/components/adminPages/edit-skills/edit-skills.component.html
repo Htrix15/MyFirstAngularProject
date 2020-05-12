@@ -1,0 +1,45 @@
+<div class="first-box btn-add-exp">
+  <h2>Навыки</h2>
+  <button *ngIf="mixing" type="button" (click)="saveMixing()">Cохранить перемешивание</button>
+</div>
+  <div class="sections-width">
+    <div class="skills-box">
+      <form *ngFor="let skill of forms.controls let iForm = index;" 
+         [formGroup] = skill 
+        (ngSubmit)="submit(iForm)">
+
+        <div class="skills-box__btn-box">
+          <button type="button" (click)="deleteSkill(iForm)"> Удалить </button>
+        </div>
+        
+        <div class="skills-box__skill">
+          <div class="skills-box__skill__img">
+            <img *ngIf="!skill.invalid && skills[iForm].skillImg" [lazyLoad]=skills[iForm].skillImg />
+            
+            <div *ngIf="skill.invalid && skill.get('skill').touched"
+            class="validate-message--error">
+              <small *ngIf="skill.errors && skill.errors.validateSkill">Если не ввели текст - прикрепите картинку!</small>
+              <small *ngIf="skill.get('skill').errors && skill.get('skill').errors.maxlength">
+                Максимальная длина {{skill.get('skill').errors.maxlength.requiredLength}} символов   
+              </small>
+            </div>
+          </div>
+          <input type="hidden" formControlName="imgDb">
+          <label for="file{{iForm}}">Загрузить изображние</label>
+          <input type="file" id="file{{iForm}}" accept="image/*"
+                 (change)="onSelectFile($event, iForm)"
+                 formControlName="img">
+          <span>или введите текст:</span>
+
+          <input type="text" formControlName="skill" placeholder="Название навыка">
+
+        </div>
+        <div class="skills-box__btn-box">
+          <button type="button"  (click)="toLeft(iForm)" [disabled]="iForm==0"> < </button>
+          <button type="submit" [disabled]="skill.invalid">Сохранить</button>
+          <button type="button" (click)="toRight(iForm)" [disabled]="iForm==forms.length-1"> > </button>
+        </div>
+      </form>
+      <button type="button" class="skills-box__btn-add" (click)="addSkill()">добавить</button>
+    </div>
+</div>

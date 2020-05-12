@@ -1,0 +1,50 @@
+﻿[
+  {
+    "outputFile": "ClientApp/src/styles.css",
+    "inputFile": "ClientApp/src/styles.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/app/shared/error-page/error-page.component.css",
+    "inputFile": "ClientApp/src/app/shared/error-page/error-page.component.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/app/shared/main-header/main-header.component.css",
+    "inputFile": "ClientApp/src/app/shared/main-header/main-header.component.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/app/components/adminPages/edit-other/edit-other.component.css",
+    "inputFile": "ClientApp/src/app/components/adminPages/edit-other/edit-other.component.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/app/components/adminPages/edit-skills/edit-skills.component.css",
+    "inputFile": "ClientApp/src/app/components/adminPages/edit-skills/edit-skills.component.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/app/components/adminPages/logon/logon.component.css",
+    "inputFile": "ClientApp/src/app/components/adminPages/logon/logon.component.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/app/components/homePages/sections/contacts-section/contacts-section.component.css",
+    "inputFile": "ClientApp/src/app/components/homePages/sections/contacts-section/contacts-section.component.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/app/components/homePages/sections/experience-section/experience-section.component.css",
+    "inputFile": "ClientApp/src/app/components/homePages/sections/experience-section/experience-section.component.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/app/components/homePages/sections/footer-section/footer-section.component.css",
+    "inputFile": "ClientApp/src/app/components/homePages/sections/footer-section/footer-section.component.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/app/components/homePages/sections/main-section/main-section.component.css",
+    "inputFile": "ClientApp/src/app/components/homePages/sections/main-section/main-section.component.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/app/components/homePages/sections/skills-section/skills-section.component.css",
+    "inputFile": "ClientApp/src/app/components/homePages/sections/skills-section/skills-section.component.scss"
+  },
+  {
+    "outputFile": "ClientApp/src/assets/styles/navigations.css",
+    "inputFile": "ClientApp/src/assets/styles/navigations.scss"
+  }
+]

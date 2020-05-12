@@ -1,0 +1,48 @@
+<nav >
+  <ul class="navigations-box">
+    <li>
+      <a class="navigations-box__link" [routerLink]="['logon']" routerLinkActive="navigations-box__link--activ">Вход</a>
+    </li>
+    <li>
+      <a class="navigations-box__link" [routerLink]="['experience']" routerLinkActive="navigations-box__link--activ">Опыт работы</a>
+    </li>
+    <li>
+      <a class="navigations-box__link" [routerLink]="['skills']" routerLinkActive="navigations-box__link--activ">Навыки</a>
+    </li>
+    <li>
+      <a class="navigations-box__link" [routerLink]="['education']" routerLinkActive="navigations-box__link--activ">Образование</a>
+    </li>
+    <li>
+      <a class="navigations-box__link" [routerLink]="['other']" routerLinkActive="navigations-box__link--activ">Остальное</a>
+    </li>
+    <li>
+      <a class="navigations-box__link" [routerLink]="['user']" routerLinkActive="navigations-box__link--activ">Учетка</a>
+    </li>
+  </ul>
+
+  <ul *ngIf="show_menu" class="navigations-box--menu">
+    <li>
+      <a class="navigations-box__link" [routerLink]="['/']" [routerLinkActiveOptions]="{exact: true}" routerLinkActive="navigations-box__link--activ" (click)="close()">На главную</a>
+    </li>
+    <li>
+      <a class="navigations-box__link" [routerLink]="['logon']" routerLinkActive="navigations-box__link--activ" (click)="close()">Вход</a>
+    </li>
+    <li>
+      <a class="navigations-box__link" [routerLink]="['experience']" routerLinkActive="navigations-box__link--activ" (click)="close()">Опыт работы</a>
+    </li>
+    <li>
+      <a class="navigations-box__link" [routerLink]="['skills']" routerLinkActive="navigations-box__link--activ" (click)="close()">Навыки</a>
+    </li>
+    <li>
+      <a class="navigations-box__link" [routerLink]="['education']" routerLinkActive="navigations-box__link--activ" (click)="close()">Образование</a>
+    </li>
+    <li>
+      <a class="navigations-box__link" [routerLink]="['other']" routerLinkActive="navigations-box__link--activ" (click)="close()">Остальное</a>
+    </li>
+    <li>
+      <a class="navigations-box__link" [routerLink]="['user']" routerLinkActive="navigations-box__link--activ" (click)="close()">Учетка</a>
+    </li>
+  </ul>
+</nav>
+<div class="after-head-and-nav-el"></div>
+<router-outlet></router-outlet>

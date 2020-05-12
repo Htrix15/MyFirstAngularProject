@@ -1,0 +1,33 @@
+<section class="sections-width">
+  <h2>Образование</h2>
+    <div class="experience-box" *ngFor="let education of educationsData">
+      <div class="experience-box__sub-box">
+        <h3>{{education.institution}}</h3>
+        <div class="experience-box__sub-box__2col-box">
+          <div>
+            <b>Год окончания:</b>
+          </div>
+          <div>
+            <span>{{education.dateCompletion}}</span>
+          </div>
+        </div>
+        <div class="experience-box__sub-box__2col-box">
+          <div>
+            <b>Специальность:</b>
+          </div>
+          <div>
+            <span>{{education.specialty}}</span>
+          </div>
+        </div>
+        <div *ngIf="education.gradePoint" class="experience-box__sub-box__2col-box">
+          <div>
+            <b>Средний балл:</b>
+          </div>
+          <div>
+            <span>{{education.gradePoint}}</span>
+          </div>
+        </div>
+      </div>
+  </div>
+
+</section>
