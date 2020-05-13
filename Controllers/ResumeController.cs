@@ -179,9 +179,14 @@ namespace TestAngular.Controllers
                     preResult.UsrData_.SavePathToImg(pathForDB);
                     switch(preResult.EntityType){
                         case("skill"): {
-                            validateErrors = (preResult.UsrData_ as UsrSkill).Validate();
+                            UsrSkill updateUsrSkill = (preResult.UsrData_ as UsrSkill);
+                            validateErrors = updateUsrSkill?.Validate();
                             if(validateErrors==null){
-                                result = await _dbOperations.DataChangeAsync<UsrSkill>(preResult.UsrData_ as UsrSkill);
+                                _fileOperations.DeleteOldFile<UsrSkill>(
+                                            pathForDB, 
+                                            await _dbOperations.SelectNoTrackingListAsync<UsrSkill>(),
+                                            updateUsrSkill.GetKey());                                
+                                result = await _dbOperations.DataChangeAsync<UsrSkill>(updateUsrSkill);
                             }
                             else{
                                 result.Error = validateErrors;
@@ -189,9 +194,14 @@ namespace TestAngular.Controllers
                             break;
                         }
                         case("main"):{
-                            validateErrors = (preResult.UsrData_ as UsrMain).Validate();
+                            UsrMain updateUsrMain = (preResult.UsrData_ as UsrMain);
+                            validateErrors = updateUsrMain?.Validate();
                             if(validateErrors==null){
-                            result = await _dbOperations.DataChangeAsync<UsrMain>(preResult.UsrData_ as UsrMain);
+                                _fileOperations.DeleteOldFile<UsrMain>(
+                                            pathForDB, 
+                                            await _dbOperations.SelectNoTrackingListAsync<UsrMain>(),
+                                            updateUsrMain.GetKey());   
+                                result = await _dbOperations.DataChangeAsync<UsrMain>(updateUsrMain);
                             } 
                             else{
                                 result.Error = validateErrors;

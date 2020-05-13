@@ -11,12 +11,15 @@ namespace TestAngular.Services
     public class DbOperations
     {
         private readonly ResumeContext _resumeContext;
+        private readonly FileOperations _fileOperations;
         private readonly ILogger<DbOperations> _logger;
 
         public DbOperations(ResumeContext resumeContext,
+        FileOperations fileOperations,
             ILogger<DbOperations> logger)
         {
             _resumeContext = resumeContext;
+            _fileOperations = fileOperations;
             _logger = logger;
         }
         public async Task<UsrAdmin> GetAdminUserAsync()
@@ -154,6 +157,10 @@ namespace TestAngular.Services
                             result = await DataChangeAsync<UsrExperience>(await _resumeContext.UsrExperiences.Where(experiences => experiences.UsrExperienceId == id).FirstOrDefaultAsync(), EntityState.Deleted); 
                             break; }
                         case ("skills"): { 
+                            _fileOperations.DeleteOldFile<UsrSkill>(
+                                            "X", 
+                                            await SelectNoTrackingListAsync<UsrSkill>(),
+                                            id);   
                             result =  await DataChangeAsync<UsrSkill>(await _resumeContext.UsrSkills.Where(skills => skills.UsrSkillId == id).FirstOrDefaultAsync(), EntityState.Deleted); 
                             break; }
                         default: { 
@@ -172,7 +179,10 @@ namespace TestAngular.Services
             }
             return result;
         }
-        
+        public async Task<List<TEntity>> SelectNoTrackingListAsync<TEntity>() where TEntity: class{
+            return  await _resumeContext.Set<TEntity>().AsNoTracking().ToListAsync();
+        }
+
         private async Task<List<TEntity>> SelectListAsync<TEntity>() where TEntity: class{
             return await _resumeContext.Set<TEntity>().ToListAsync();
         }

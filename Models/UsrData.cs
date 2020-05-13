@@ -4,6 +4,7 @@
     {
         public virtual void SavePathToImg(string path){}
         public virtual string Validate(){return null;}
+        public virtual string GetPathToImg(){return "-1";}
         public virtual int GetKey(){return 0;}
         public virtual int GetNumberInTurn(){return 0;}
         public virtual void SetNumberInTurn(int key){}

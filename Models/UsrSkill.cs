@@ -10,6 +10,7 @@ namespace TestAngular.Models
         public string Skill { get; set; }
         public int? NumberInTurn { get; set; }
 
+        public override string GetPathToImg(){return SkillImg;}
         public override int GetKey(){return (int) UsrSkillId;}
         public override int GetNumberInTurn(){return (int)NumberInTurn;}
         public override void SetNumberInTurn(int newNumberInTurn) {
